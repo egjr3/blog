@@ -52,12 +52,12 @@
                                     <label for="title">Title</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="subtitle" name="subtitle" type="date" placeholder="Enter a subtitle..."  required oninvalid="this.setCustomValidity('Please write a subtitle')" oninput="this.setCustomValidity('')"/>
-                                    <label for="subtitle">Subtitle</label>
+                                    <input class="form-control" id="date" name="date" type="date" placeholder="Enter a date..."  required oninvalid="this.setCustomValidity('Please write a date')" oninput="this.setCustomValidity('')"/>
+                                    <label for="date">Date</label>
                                 </div>
                                 <div class="form-floating">
-                                    <label for="content">Content</label><br><br>
-                                    {{ ckeditor.create() }}
+                                    <textarea form="publishForm" class="form-control" id="content" name="content" placeholder="Enter a post content..." style="height: 12rem"  required oninvalid="this.setCustomValidity('Please write some content')" oninput="this.setCustomValidity('')"></textarea>
+                                    <label for="content">Content</label>
                                 </div>
                                 <br />
                                 <!-- Submit success message-->
@@ -80,7 +80,6 @@
                                 <!-- Submit Button-->
                                 <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Publish</button>
                             </form>
-                            {{ ckeditor.load() }}
                         </div>
                     </div>
                 </div>

@@ -49,18 +49,18 @@
                             <!-- to get an API token!-->
                             <form action="{{ url_for('receive_data') }}" method="post" id="contactForm">
                                 <div class="form-floating">
-                                    <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                    <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required oninvalid="this.setCustomValidity('Please write a Name')" oninput="this.setCustomValidity('')"/>
                                     <label for="name">Name</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..." required oninvalid="this.setCustomValidity('Please write an Email')" oninput="this.setCustomValidity('')"/>
                                     <label for="email">Email address</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                     <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" />
+                                    <input class="form-control" id="phone" name="phone" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Enter your phone number..." required oninvalid="this.setCustomValidity('Please write a phone Number')" oninput="this.setCustomValidity('')"/>
                                     <label for="phone">Phone Number</label>
                                     <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                                 </div>

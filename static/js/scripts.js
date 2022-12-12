@@ -40,3 +40,7 @@ function getMonthName(monthNumber) {
   return date.toLocaleString('en-US', { month: 'long' });
 }
 
+function updateFormContent(content){
+    console.log(content)
+    document.getElementById("content").value = 'content';
+}

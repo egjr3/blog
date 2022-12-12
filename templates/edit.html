@@ -15,7 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
     </head>
-    <body onload="updateFormContent('{{edit_post.date}}')">
+    <body>
         <!-- Navigation-->
         {% include 'navbar.html' %}
         <!-- Page Header-->
@@ -45,7 +45,7 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form action="{{ url_for('publishEntry') }}" method="post" id="publishForm">
+                            <form action="/update_post/{{edit_post.rowid}}" method="post" id="updateForm">
                                 <div class="form-floating">
                                     <input class="form-control" id="title" name="title" value='{{edit_post.title}}' type="text" placeholder="Enter a title..."  required  oninvalid="this.setCustomValidity('Please write a title')" oninput="this.setCustomValidity('')"/>
                                     <label for="title">Title</label>
@@ -55,9 +55,8 @@
                                     <label for="date">Date</label>
                                 </div>
                                 <div class="form-floating">
-                                    <label for="content">Content</label><br><br>
-                                    {{ ckeditor.create() }}
-
+                                    <textarea form="updateForm" class="form-control" id="content" name="content" placeholder="Enter a post content..." style="height: 12rem"  required oninvalid="this.setCustomValidity('Please write some content')" oninput="this.setCustomValidity('')">{{edit_post.content}}</textarea>
+                                    <label for="content">Content</label>
                                 </div>
                                 <br />
                                 <!-- Submit success message-->
@@ -78,9 +77,8 @@
                                 <!-- an error submitting the form-->
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error publishing entry!</div></div>
                                 <!-- Submit Button-->
-                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Publish</button>
+                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Update</button>
                             </form>
-                            {{ ckeditor.load() }}
                         </div>
                     </div>
                 </div>

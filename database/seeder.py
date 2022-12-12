@@ -13,7 +13,7 @@ def create_table():
     cursor.execute(
         f"""CREATE TABLE Posts (
             title text,
-            subtitle text,
+            date text,
             content text
         )"""
     )
@@ -21,10 +21,10 @@ def create_table():
     conn.close()
 
 
-def insert_row(title, subtitle, content):
+def insert_row(title, date, content):
     conn = sql.connect("blog.db")
     cursor = conn.cursor()
-    instruction = f"INSERT INTO Posts VALUES ('{title}', '{subtitle}', '{content}')"
+    instruction = f"INSERT INTO Posts VALUES ('{title}', '{date}', '{content}')"
     cursor.execute(instruction)
     conn.commit()
     conn.close()
@@ -60,8 +60,8 @@ def read_rows():
 
 
 if __name__ == '__main__':
-    # create_db()
-    # create_table()
+    create_db()
+    create_table()
     delete_all_rows()
     insert_row(
         'I got accepted into BLACKWELL ACADEMY!',

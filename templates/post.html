@@ -27,7 +27,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
                             <h1>{{post.title}}</h1>
-                            <h2 class="subheading"><script>document.write(formatDate('{{post.subtitle}}'))</script></h2>
+                            <h2 class="subheading"><script>document.write(formatDate('{{post.date}}'))</script></h2>
                         </div>
                     </div>
                 </div>
@@ -48,6 +48,7 @@
                     </div>
                 </article>
 
+                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="/edit/{{post.rowid}}">Edit This Post</a></div>
                 <div class="d-flex justify-content-end mb-4"><a class="btn btn-danger text-uppercase" href="/delete/{{post.rowid}}">Delete This Post</a></div>
             </div>
         </div>
