@@ -2960,7 +2960,7 @@ textarea.form-control-lg {
 
 .btn {
   display: inline-block;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: handWrite, "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 800;
   line-height: 1.5;
   color: #212529;
@@ -11025,6 +11025,7 @@ blockquote {
   border-left: 0;
   border-right: 0;
   border-top: 0;
+  margin: 20px 0px;
 }
 .form-floating input:focus,
 .form-floating textarea:focus {

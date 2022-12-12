@@ -27,3 +27,16 @@ window.addEventListener('DOMContentLoaded', () => {
         scrollPos = currentTop;
     });
 })
+
+function formatDate(date){
+    var data = date.split("-");
+    return getMonthName(data[1]) + ' ' + data[2] + ', ' + data[0]
+}
+
+function getMonthName(monthNumber) {
+  const date = new Date();
+  date.setMonth(monthNumber - 1);
+
+  return date.toLocaleString('en-US', { month: 'long' });
+}
+

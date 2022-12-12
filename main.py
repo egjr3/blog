@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_ckeditor import CKEditor
 from Models import db, Posts
 import smtplib
 import os
@@ -10,13 +11,14 @@ MY_EMAIL = "edgar.guerra.j@gmail.com"
 MY_PASSWORD = "umowclhpclhvqpvx"
 
 app = Flask(__name__)
+ckeditor = CKEditor(app)
 app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
 db.init_app(app)
 
 
 @app.route("/")
 def home():
-    all_posts = Posts.query.all()
+    all_posts = Posts.query.order_by(Posts.subtitle)
     to_return = reversed([post.serialize() for post in all_posts])
     feedback = ''
     if not all_posts:
@@ -86,7 +88,7 @@ def send_email(name, sender_email, phone, message):
 def publishEntry():
     title = request.form['title']
     subtitle = request.form['subtitle']
-    content = request.form['content']
+    content = request.form['ckeditor']
     #print(title, subtitle, content)
     feedback = ''
     entry_rowid = publish_new_entry(title=title, subtitle=subtitle, content=content)
